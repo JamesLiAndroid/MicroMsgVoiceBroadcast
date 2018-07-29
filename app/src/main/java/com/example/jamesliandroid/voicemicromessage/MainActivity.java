@@ -123,8 +123,15 @@ public class MainActivity extends AppCompatActivity implements SmsDatabaseChange
         // 1. 筛选主要的内容
         mainStr  = content.split("[，|,]")[0];
         Log.d("TAG", "当前获取的语音读取信息为："+mainStr);
+        // 2. 对接收的内容进行处理
+        String[] contentDepart = mainStr.split("[0-9]{1,3}(,[0-9]{3})*(.[0-9]{1,2})");
+        String numContent = StrUtils.patternStr(mainStr);
+        Log.d("TAG", "转换后的信息为："+mainStr+"......."+numContent);
+
+        mainStr = contentDepart[0] + "：" + numContent + contentDepart[1];
+
         ((TextView) findViewById(R.id.tv_str_msg)).setText(mainStr);
-        // 2. 语音播报
+        // 3. 语音播报
         // 初始化合成对象
         mTts = SpeechSynthesizer.createSynthesizer(this, new InitListener() {
             @Override

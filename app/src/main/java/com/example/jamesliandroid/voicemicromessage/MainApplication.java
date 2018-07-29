@@ -18,7 +18,7 @@ public class MainApplication extends Application {
         // 注意： appid 必须和下载的SDK保持一致，否则会出现10407错误
 
         StringBuffer param = new StringBuffer();
-        param.append("appid="); // TODO:这里需要添加所申请的讯飞appid， https://console.xfyun.cn/app/myapp?currPage=1&keyword=
+        param.append("appid=5b5d2765");
         param.append(",");
         // 设置使用v5+
         param.append(SpeechConstant.ENGINE_MODE+"="+SpeechConstant.MODE_MSC);
